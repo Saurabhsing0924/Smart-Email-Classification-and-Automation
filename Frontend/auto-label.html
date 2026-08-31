@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Label Emails - Email Automation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffd93d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .control-panel {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    button {
+      background: linear-gradient(45deg, #ff6b6b, #ffa500);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .progress-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .results-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .result-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .result-item.success {
+      border-left: 4px solid #4ecdc4;
+    }
+    .result-item.error {
+      border-left: 4px solid #ff6b6b;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <h1>🏷️ Auto Label Existing Emails</h1>
+
+    <div class="control-panel">
+      <p>Scan your inbox and automatically apply labels to existing emails based on your rules.</p>
+      <button id="start-labeling">Start Auto Labeling</button>
+      <button id="stop-labeling" disabled>Stop</button>
+    </div>
+
+    <div class="progress-section">
+      <h3>Progress</h3>
+      <div id="progress-text">Ready to start...</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="results-section">
+      <h3>Results</h3>
+      <div id="results-container">
+        <!-- Results will be shown here -->
+      </div>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="auto-label.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

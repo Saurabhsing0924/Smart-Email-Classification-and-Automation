@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Email Automation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffd93d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .settings-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 14px;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .checkbox-group input {
+      width: auto;
+      margin-right: 10px;
+    }
+    button {
+      background: linear-gradient(45deg, #ff6b6b, #ffa500);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .api-key-info {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      border-left: 4px solid #ffd93d;
+    }
+    .api-key-info h4 {
+      margin: 0 0 10px 0;
+      color: #ffd93d;
+    }
+    .api-key-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <h1>⚙️ Settings</h1>
+
+    <div class="settings-section">
+      <h2>API Keys</h2>
+
+      <div class="api-key-info">
+        <h4>GROQ API Key</h4>
+        <p>Get your API key from <a href="https://console.groq.com/" target="_blank" style="color: #ffd93d;">GROQ Console</a></p>
+        <p>This key is used for AI-powered email classification and reply generation.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="groq-api-key">GROQ API Key:</label>
+        <input type="password" id="groq-api-key" placeholder="Enter your GROQ API key">
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>AI Features</h2>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="use-ai-labeling">
+        <label for="use-ai-labeling">Enable AI-powered email labeling</label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="use-ai-reply">
+        <label for="use-ai-reply">Enable AI-powered reply generation</label>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>Auto Forward Settings</h2>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="auto-forward-enabled">
+        <label for="auto-forward-enabled">Enable automatic email forwarding</label>
+      </div>
+
+      <div class="form-group">
+        <label for="forward-email">Default Forward Email:</label>
+        <input type="email" id="forward-email" placeholder="forward@example.com">
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>Auto Reply Settings</h2>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="auto-reply-enabled">
+        <label for="auto-reply-enabled">Enable automatic replies</label>
+      </div>
+
+      <div class="form-group">
+        <label for="reply-delay">Reply Delay (minutes):</label>
+        <input type="number" id="reply-delay" min="0" max="1440" value="0" placeholder="0 for immediate">
+      </div>
+    </div>
+
+    <button id="save-settings">Save Settings</button>
+    <button id="test-api">Test API Connection</button>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

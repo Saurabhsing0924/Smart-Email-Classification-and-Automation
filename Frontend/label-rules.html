@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Label Rules</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      width: 460px;
+      min-width: 420px;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      color: white;
+      min-height: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-bottom: 10px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .rules-list {
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .rule-item {
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rule-item button {
+      width: auto;
+      padding: 5px 10px;
+      background: #ff4757;
+      margin: 0;
+    }
+    .rule-item button:hover {
+      background: #ff3742;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏷️ Label Rules</h1>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <label for="label-name">Label Name</label>
+    <input id="label-name" type="text" placeholder="e.g., Support Ticket" />
+
+    <label for="label-keywords">Keywords (comma-separated)</label>
+    <input id="label-keywords" type="text" placeholder="e.g., help, support, issue" />
+
+    <button id="add-rule">Add Label Rule</button>
+
+    <div class="rules-list" id="rules-list">
+      <!-- Rules will be loaded here -->
+    </div>
+
+    <div class="status" id="status">Loading rules...</div>
+  </div>
+  <script src="label-rules.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

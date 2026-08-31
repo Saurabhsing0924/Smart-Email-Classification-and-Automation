@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Email Automation + GROQ AI",
+  "description": "Auto-label, auto-forward, and generate replies with AI from Gmail.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Email Automation"
+  },
+  "permissions": [
+    "storage",
+    "identity",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://api.groq.com/*"
+  ],
+  "oauth2": {
+    "client_id": "269452296903-21gi6ai7qhhmf3a9r4momu079aa29f4a.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.modify",
+      "https://www.googleapis.com/auth/gmail.send"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

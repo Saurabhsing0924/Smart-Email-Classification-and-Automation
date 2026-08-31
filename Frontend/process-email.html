@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process Email - Email Automation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffd93d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .email-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 14px;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    button {
+      background: linear-gradient(45deg, #ff6b6b, #ffa500);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .ai-toggle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .ai-toggle input {
+      width: auto;
+      margin-right: 10px;
+    }
+    .generated-reply {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .generated-reply h3 {
+      color: #ffd93d;
+      margin-top: 0;
+    }
+    .reply-actions {
+      margin-top: 15px;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <h1>🤖 Process Email with AI</h1>
+
+    <div class="email-form">
+      <h2>Enter Email Details</h2>
+      <div class="form-group">
+        <label for="sender">Sender Email:</label>
+        <input type="email" id="sender" placeholder="sender@example.com">
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" placeholder="Email subject">
+      </div>
+      <div class="form-group">
+        <label for="body">Email Body:</label>
+        <textarea id="body" placeholder="Paste the email content here..."></textarea>
+      </div>
+      <div class="ai-toggle">
+        <input type="checkbox" id="use-ai" checked>
+        <label for="use-ai">Use AI for reply generation</label>
+      </div>
+      <button id="generate-reply">Generate Reply</button>
+      <button id="clear-form">Clear</button>
+    </div>
+
+    <div class="generated-reply" id="reply-section" style="display: none;">
+      <h3>Generated Reply</h3>
+      <div id="generated-reply-content"></div>
+      <div class="reply-actions">
+        <button id="send-reply">Send Reply</button>
+        <button id="edit-reply">Edit Reply</button>
+        <button id="copy-reply">Copy to Clipboard</button>
+      </div>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="process-email.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

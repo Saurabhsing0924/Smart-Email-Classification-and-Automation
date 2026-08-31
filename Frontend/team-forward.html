@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Team Forwarding</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      width: 460px;
+      min-width: 420px;
+      background: linear-gradient(135deg, #45b7d1 0%, #96c93d 100%);
+      color: white;
+      min-height: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .team {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .team label {
+      margin: 0;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .team input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px;
+    }
+    .team input[type="email"] {
+      flex: 1;
+      margin-left: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #45b7d1, #96c93d);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>👥 Team Forwarding</h1>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <div class="banner" id="team-banner" style="display: none; padding: 15px; background: rgba(255,255,255,0.15); border-radius: 10px; margin-bottom: 20px; color: #0b233f;">
+      <p style="margin: 0 0 10px; font-weight: bold;">Team forwarding is not enabled.</p>
+      <p style="margin: 0 0 10px;">You can enable a team or dismiss this reminder.</p>
+      <button id="banner-forward" style="width: auto; margin-right: 10px;">Forward</button>
+      <button id="banner-dismiss" style="width: auto;">Dismiss</button>
+    </div>
+
+    <div class="team">
+      <input id="sales-enabled" type="checkbox" />
+      <label for="sales-enabled">Sales Team</label>
+      <input id="sales-email" type="email" placeholder="sales@company.com" />
+    </div>
+
+    <div class="team">
+      <input id="support-enabled" type="checkbox" />
+      <label for="support-enabled">Support Team</label>
+      <input id="support-email" type="email" placeholder="support@company.com" />
+    </div>
+
+    <div class="team">
+      <input id="engineering-enabled" type="checkbox" />
+      <label for="engineering-enabled">Engineering Team</label>
+      <input id="engineering-email" type="email" placeholder="engineering@company.com" />
+    </div>
+
+    <button id="save-settings">Save Team Settings</button>
+
+    <div class="status" id="status">Loading settings...</div>
+  </div>
+  <script src="team-forward.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

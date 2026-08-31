@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Templates - Email Automation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      width: 460px;
+      min-width: 420px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffd93d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .template-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 14px;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    button {
+      background: linear-gradient(45deg, #ff6b6b, #ffa500);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .template-list {
+      margin-top: 30px;
+    }
+    .template-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .template-item h3 {
+      margin: 0;
+      color: #ffd93d;
+    }
+    .template-item p {
+      margin: 5px 0;
+      color: #e0e0e0;
+    }
+    .template-actions button {
+      margin-left: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <h1>📝 Email Templates</h1>
+
+    <div class="template-form">
+      <h2>Add/Edit Template</h2>
+      <div class="form-group">
+        <label for="template-name">Template Name:</label>
+        <input type="text" id="template-name" placeholder="e.g., Thank You Response">
+      </div>
+      <div class="form-group">
+        <label for="template-subject">Subject:</label>
+        <input type="text" id="template-subject" placeholder="Email subject">
+      </div>
+      <div class="form-group">
+        <label for="template-body">Body:</label>
+        <textarea id="template-body" placeholder="Email body content..."></textarea>
+      </div>
+      <button id="save-template">Save Template</button>
+      <button id="clear-form">Clear</button>
+    </div>
+
+    <div class="template-list">
+      <h2>Your Templates</h2>
+      <div id="templates-container">
+        <!-- Templates will be loaded here -->
+      </div>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="templates.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

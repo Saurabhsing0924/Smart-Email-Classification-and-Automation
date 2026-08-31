@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Forward Rules</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      width: 460px;
+      min-width: 420px;
+      background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+      color: white;
+      min-height: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .department {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+    .department h3 {
+      margin: 0 0 10px 0;
+      color: #fff;
+    }
+    label {
+      display: block;
+      margin: 8px 0 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-bottom: 10px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .rules-list {
+      margin-top: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .rule-item {
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rule-item button {
+      width: auto;
+      padding: 5px 10px;
+      background: #ff4757;
+      margin: 0;
+    }
+    .rule-item button:hover {
+      background: #ff3742;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>➡️ Forward Rules</h1>
+  <div class="container">
+    <button class="back-button" onclick="goBack()" style="margin-bottom:20px; padding:10px 14px; border:none; border-radius:10px; background: rgba(255,255,255,0.15); color: white; cursor: pointer; font-weight: 700;">← Back</button>
+    <div class="department">
+      <h3>Sales Department</h3>
+      <label>Keywords</label>
+      <input id="sales-keywords" type="text" placeholder="sales, deal, proposal, pricing" />
+      <label>Forward to</label>
+      <input id="sales-email" type="email" placeholder="sales@company.com" />
+      <button onclick="addRule('sales')">Add Sales Rule</button>
+    </div>
+
+    <div class="department">
+      <h3>Support Department</h3>
+      <label>Keywords</label>
+      <input id="support-keywords" type="text" placeholder="help, support, issue, ticket" />
+      <label>Forward to</label>
+      <input id="support-email" type="email" placeholder="support@company.com" />
+      <button onclick="addRule('support')">Add Support Rule</button>
+    </div>
+
+    <div class="department">
+      <h3>Engineering Department</h3>
+      <label>Keywords</label>
+      <input id="engineering-keywords" type="text" placeholder="bug, error, deploy, release" />
+      <label>Forward to</label>
+      <input id="engineering-email" type="email" placeholder="engineering@company.com" />
+      <button onclick="addRule('engineering')">Add Engineering Rule</button>
+    </div>
+
+    <div class="rules-list" id="rules-list">
+      <!-- Rules will be loaded here -->
+    </div>
+
+    <button id="run-forwarding">Run Forwarding on Inbox</button>
+    <div class="rules-list" id="forward-results"></div>
+    <div class="status" id="status">Loading rules...</div>
+  </div>
+  <script src="forward-rules.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Email Automation Menu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      width: 460px;
+      min-width: 420px;
+      background: linear-gradient(135deg, #1a2036 0%, #2d3a6c 100%);
+      color: white;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    button {
+      padding: 15px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      color: white;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .label-btn { background: linear-gradient(45deg, #ff6b6b, #ee5a24); }
+    .forward-btn { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+    .team-btn { background: linear-gradient(45deg, #45b7d1, #96c93d); }
+    .template-btn { background: linear-gradient(45deg, #f093fb, #f5576c); }
+    .process-btn { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+    .auto-label-btn { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+    .settings-btn { background: linear-gradient(45deg, #fa709a, #fee140); }
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>📧 Email Automation</h1>
+  <div class="menu">
+    <button class="label-btn" id="label-rules">🏷️ Label Rules</button>
+    <button class="forward-btn" id="forward-rules">➡️ Forward Rules</button>
+    <button class="team-btn" id="team-forward">👥 Team Forward</button>
+    <button class="template-btn" id="templates">📝 Templates</button>
+    <button class="process-btn" id="process-email">🔍 Process Email</button>
+    <button class="auto-label-btn" id="auto-label">🤖 Auto Label Inbox</button>
+    <button class="settings-btn" id="settings">⚙️ Settings</button>
+  </div>
+  <div class="status" id="status">Ready to automate your emails!</div>
+  <button id="connect-gmail" style="width:100%; padding:12px; margin-top:15px; border:none; border-radius:10px; background: linear-gradient(45deg, #00b894, #0984e3); color:white; font-size:15px; cursor:pointer;">Connect Gmail</button>
+  <script src="popup.js"></script>
+</body>
+</html>
